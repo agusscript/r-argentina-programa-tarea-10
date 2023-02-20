@@ -1,0 +1,16 @@
+body {
+  background-color: gray;
+}
+
+#integrantes-container input {
+  display: block;
+}
+
+em {
+  display: block;
+  margin-top: 4px;
+}
+
+.error {
+  border: 2px solid red;
+}

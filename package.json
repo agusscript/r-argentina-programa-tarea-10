@@ -1,0 +1,23 @@
+{
+  "name": "r-argentina-programa-tarea-10",
+  "version": "1.0.0",
+  "description": "Estilando formularios con bootstrap",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agusscript/r-argentina-programa-tarea-10.git"
+  },
+  "author": "Agustin Sanchez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agusscript/r-argentina-programa-tarea-10/issues"
+  },
+  "homepage": "https://github.com/agusscript/r-argentina-programa-tarea-10#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "jquery": "^3.6.3"
+  }
+}
