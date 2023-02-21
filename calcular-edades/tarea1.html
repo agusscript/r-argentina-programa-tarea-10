@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,22 +8,40 @@
   <title>Tarea 1 clase 6</title>
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
+
 <body>
-  <form>
-    <label for="integrantes-familia">Integrantes del grupo familiar:</label>
-    <input id="integrantes-familia" type="text" maxlength="2">
-    <button id="agregar">Agregar</button>
-    <div id="integrantes-container"></div>
-    <button id="calcular">Calcular</button>
-    <div id="calculos">
-      <em>La mayor edad es: <span id="maxima-edad"></span></em>
-      <em>La menor edad es: <span id="minima-edad"></span></em>
-      <em>El promedio de edad es: <span id="promedio-edad"></span></em>
-    </div>
-    <button id="reiniciar">Reiniciar</button>
-    <ul id="errores"></ul>
-  </form>
+  <div class="container">
+
+    <form class="form-control needs-validation mt-4" novalidate>
+      <h1 class="text-center mt-2 text-primary">Calcular promedio de edades</h1>
+
+      <div class="row">
+        <label for="integrantes-familia" class="fw-bold col-form-label">Integrantes del grupo familiar</label>
+        <input id="integrantes-familia" class="form-control" type="text" placeholder="Número de integrantes" required
+          maxlength="2">
+      </div>
+      <button id="agregar" class="btn btn-secondary mt-2">Agregar</button>
+
+       <div class="calculos-container d-none">
+
+        <div id="integrantes-container" ></div>
+
+        <button id="calcular" class="btn btn-secondary mt-2">Calcular</button>
+
+        <div id="calculos" class="mt-3 mb-2">
+          <em class="d-block alert alert-secondary">La mayor edad es: <span id="maxima-edad"></span></em>
+          <em class="d-block alert alert-secondary">La menor edad es: <span id="minima-edad"></span></em>
+          <em class="d-block alert alert-secondary">El promedio de edad es: <span id="promedio-edad"></span></em>
+        </div>
+
+        <button id="reiniciar" class="btn btn-secondary">Reiniciar</button>
+
+      </div>
+    </form>
+
+  </div>
+  <script src="validaciones.js"></script>
   <script src="tarea1.js"></script>
-  <script src="pruebas.js"></script>
 </body>
+
 </html>

@@ -1,8 +1,3 @@
-// TAREA: Empezar preguntando cuánta gente hay en el grupo familiar.
-// Crear tantos inputs+labels como gente haya para completar la edad de cada integrante.
-// Al hacer click en "calcular", mostrar en un elemento pre-existente la mayor edad, la menor edad y el promedio del grupo familiar.
-// Punto bonus: Crear un botón para "empezar de nuevo" que empiece el proceso nuevamente, borrando los inputs ya creados (investigar cómo en MDN).
-
 const $integrantesFamiliaInput = document.querySelector("#integrantes-familia");
 const $containerIntegrantes = document.querySelector("#integrantes-container");
 const $botonAgregarIntegrantes = document.querySelector("#agregar");
@@ -17,6 +12,8 @@ function crearInputs(cantidadIntegrantes) {
     let nuevoLabel;
 
     nuevoLabel = document.createElement("label");
+    nuevoLabel.classList.add("d-block");
+    nuevoLabel.classList.add("col-form-label");
     nuevoLabel.textContent = `Edad integrante #${i}:`;
     nuevoInput = document.createElement("input");
     nuevoInput.className = "edad";
@@ -69,62 +66,10 @@ function calcularPromedio(edadesArray) {
   return promedioEdades
 }
 
-function validarCantidadIntegrantes(cantidadIntegrantes) {
-  if (cantidadIntegrantes.length === 0) {
-    return "Este campo no puede estar vacío";
-  } else if (!/^[0-9]+$/.test(cantidadIntegrantes)) {
-    return "Este campo solo recibe números";
-  } else {
-    return "";
-  }
-}
-
-function validarEdades(edad) {
-  if(edad.length === 0) {
-    return "Este campo no puede estar vacío";
-  } else if (!/^[0-9][0-9]$/.test(edad)) {
-    return "Este campo solo recibe números hasta 99"
-  } else {
-    return ""
-  }
-}
-
-function manejarValidacionesIntegrantes() {
-  const cantidadIntegrantes = $integrantesFamiliaInput.value;
-  const $erroresTexto = document.querySelector("#errores");
-  const errorCantidadIntegrantes = validarCantidadIntegrantes(cantidadIntegrantes);
-
-  if (errorCantidadIntegrantes) {
-    $integrantesFamiliaInput.className = "error";
-
-    const errorTexto = document.createElement("li");
-    errorTexto.textContent = errorCantidadIntegrantes;
-    $erroresTexto.appendChild(errorTexto);
-  } else {
-    $integrantesFamiliaInput.className = "";
-  }
-}
-
-function manejarValidacionesEdades() {
-  const $edadesInput = document.querySelector(".edad");
-  const edad = $edadesInput.value;
-  const errorEdades = validarEdades(edad);
-  const $erroresTexto = document.querySelector("#errores");
-
-  if (errorEdades) {
-    $edadesInput.className = "error";
-
-    const errorTexto = document.createElement("li");
-    errorTexto.textContent = errorEdades;
-    $erroresTexto.appendChild(errorTexto);
-  } else {
-    $edadesInput.className = "";
-  }
-}
 
 $botonAgregarIntegrantes.onclick = function (event) {
+  document.querySelector(".calculos-container").className = "d-block";
   crearInputs();
-  manejarValidacionesIntegrantes();
 
   event.preventDefault();
 };
@@ -142,8 +87,6 @@ $botonCalcular.onclick = function (event) {
   calcularNumeroMinimo(edadesArray);
 
   calcularPromedio(edadesArray);
-
-  manejarValidacionesEdades();
 
   event.preventDefault();
 };
